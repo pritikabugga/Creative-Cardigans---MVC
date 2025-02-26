@@ -1,0 +1,30 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <% if (cardigan.image) { %>
+                <img src="<%= cardigan.image %>" alt="<%= cardigan.title %>" class="img-fluid rounded">       
+            <% } else { %>
+                <img src="/images/default.jpg" alt="Default Image" class="img-fluid rounded">
+            <% } %>
+        </div>
+        <div class="col-md-6">
+            <h1><%= cardigan.title %></h1>
+            <p><strong>Condition:</strong> <%= cardigan.condition %></p>
+            <p><strong>Price:</strong> $<%= cardigan.price %></p>
+            <p><strong>Seller:</strong> <%= cardigan.seller %></p>
+            <p><strong>Details:</strong> <%= cardigan.details %></p>
+            
+            <div class="mt-4">
+                <a href="/items/<%= cardigan.id %>/edit" class="btn btn-primary"><i class="fa-solid fa-pen"></i> Edit</a>
+                
+                <form action="/items/<%= cardigan.id %>?_method=DELETE" method="POST" style="display:inline;">
+                    <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Delete</button>
+                </form>                
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

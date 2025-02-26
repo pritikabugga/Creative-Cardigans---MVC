@@ -1,0 +1,42 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="edit-form-container">
+        <h2 class="text-center">Edit Cardigan</h2>
+        <form action="/items/<%= cardigan.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="mt-4">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" name="title" id="title" class="form-control" value="<%= cardigan.title %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Price ($)</label>
+                <input type="number" name="price" id="price" class="form-control" value="<%= cardigan.price %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="condition" class="form-label">Condition</label>
+                <select name="condition" id="condition" class="form-control">
+                    <option value="New" <%= cardigan.condition === "New" ? "selected" : "" %>>New</option>
+                    <option value="Like New" <%= cardigan.condition === "Like New" ? "selected" : "" %>>Like New</option>
+                    <option value="Gently Used" <%= cardigan.condition === "Gently Used" ? "selected" : "" %>>Gently Used</option>
+                    <option value="Used" <%= cardigan.condition === "Used" ? "selected" : "" %>>Used</option>
+                    <option value="Worn" <%= cardigan.condition === "Worn" ? "selected" : "" %>>Worn</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="details" class="form-label">Details</label>
+                <textarea name="details" id="details" class="form-control" required><%= cardigan.details %></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Update Image (Optional)</label>
+                <input type="file" name="image" id="image" class="form-control">
+                <p>Current Image:</p>
+                <img src="<%= cardigan.image %>" class="img-fluid rounded shadow-sm" alt="Current Image" style="max-width: 100px;">
+                <input type="hidden" name="existingImage" value="<%= cardigan.image %>"> <!-- Hidden field for keeping old image -->
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Update</button>
+            <a href="/items/<%= cardigan.id %>" class="btn btn-secondary w-100 mt-2">Cancel</a>
+        </form>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

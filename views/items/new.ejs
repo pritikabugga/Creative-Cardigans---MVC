@@ -1,0 +1,61 @@
+<%- include('../partials/header.ejs') %>
+
+<main class="main-container">
+    <div class="left-panel">
+        <h1 class="display-5 fw-bold">List Your Cardigan</h1>
+        <p>Fill out the details in the box to sell your cardigan quickly and easily.</p>
+    </div>
+
+    <div class="right-panel">
+        <div class="card">
+            <form action="/items" method="POST" enctype="multipart/form-data">
+                <!-- Condition Dropdown -->
+                <div class="mb-2">
+                    <label for="condition" class="form-label">Condition:</label>
+                    <select id="condition" name="condition" class="form-control" required>
+                        <option value="" hidden>Select Condition</option>
+                        <option>New</option>
+                        <option>Like New</option>
+                        <option>Gently Used</option>
+                        <option>Used</option>
+                        <option>Worn</option>
+                    </select>
+                </div>
+
+                <!-- Title Input -->
+                <div class="mb-2">
+                    <label for="title" class="form-label">Title:</label>
+                    <input type="text" id="title" name="title" class="form-control" required>
+                </div>
+
+                <!-- Seller Input -->
+                <div class="mb-2">
+                    <label for="seller" class="form-label">Seller:</label>
+                    <input type="text" id="seller" name="seller" class="form-control" required>
+                </div>
+
+                <!-- Price Input -->
+                <div class="mb-2">
+                    <label for="price" class="form-label">Price:</label>
+                    <input type="number" id="price" name="price" class="form-control" min="0.01" step="0.01" required>
+                </div>
+
+                <!-- Details Textarea -->
+                <div class="mb-2">
+                    <label for="details" class="form-label">Details:</label>
+                    <textarea id="details" name="details" class="form-control" required></textarea>
+                </div>
+
+                <!-- Image Upload -->
+                <div class="mb-2">
+                    <label for="image" class="form-label">Image:</label>
+                    <input type="file" id="image" name="image" class="form-control" accept="image/*">
+                </div>
+
+                <button type="submit" class="btn btn-success w-100">Submit</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<%- include('../partials/footer.ejs') %>
