@@ -1,4 +1,4 @@
-### How to Run the Application
+### Application Execution
 
 1. **Navigate to the downloaded folder** in your terminal or command prompt:
    ```bash
