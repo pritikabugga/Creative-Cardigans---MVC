@@ -8,6 +8,6 @@
    ```bash
    npm install
 
-3. **Run and navigate the final application**:
+3. **Run the final application**:
    ```bash
    nodeman app
